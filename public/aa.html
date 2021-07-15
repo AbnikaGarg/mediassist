@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>MARKS CARD</title>
+            <script>
+              var n= "welcome to india ";
+              var regex=n.search("india");
+                           
+     
+console.log(regex);
+              
+            </script>
+            <style>
+                *{
+                    margin:0px;
+                    
+                }
+                #body1st
+                {
+                    background-color: indianred;
+                    color: black;
+                    width: 900px;
+                    height: 70px;
+                }
+                #body2d
+                {
+                    background-color: rgb(224, 187, 187);
+                    color: black;
+                    width: 900px;
+                    height: 500px;
+                    
+                }
+                input[type=text]
+                {
+                    
+                    padding: 6px;
+            margin: 5px 20px 22px 30px;
+                }
+            input[type=button]{
+            background-color: rgb(39, 35, 35);
+            color: white;
+           
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 70px;
+            height: 20px;
+            
+          }
+          
+            </style>
+    
+    </head>
+    <body>
+        <div id="body1st"></div>
+        <div id="body2d">
+        <h3>MARKS CARD</h3>
+        C++:   <input type="text" id="txt1" onblur="chk1(this,s1);"  ><span id="s1"></span> <br>
+        Java:  <input type="text" id="txt2" onblur="chk1(this,s2);" ><span id="s2"></span> <br>
+        Web: <input type="text" id="txt3" onblur="chk1(this,s3);" > <span id="s3"></span><br>
+
+        <input type="button" value="Total"  onclick="doSum();" >
+        <input type="button" value="Per"  onclick="doPer();" >
+        <input type="button" value="Result"  onclick="Result();" >
+        <input type="button" value="Clear"  onclick="Clear();" > <br>
+        Total marks: <input type="text" id="txt4" autofocus> <br>
+       Percentage:  <input type="text" id="txt5" autofocus> <br>
+       Result: <input type="text" id="txt6" autofocus> <br>
+    </div>
+    </body>
+</html>

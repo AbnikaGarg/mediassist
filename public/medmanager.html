@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Bootstrap CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <script src="js/angular.min.js"></script>
+
+    <script>
+        var mymodule = angular.module("kuchbhiModule", []);
+        //$scope is lib object provided by angular
+        mymodule.controller("kuchController", function ($scope, $http) {
+            //-----------------------------
+            //====================
+            $scope.doDelete = function (email) {
+                var result = confirm("Are you sure you want to delete?");
+                if (result) {
+                    $http.get("/doDeleteProfile?email=" + email).then(okFx, notOkFx);
+                    function okFx(response)  //response is local of okFx()
+                    {
+
+                        // alert("All is well");
+                        alert(response.data);
+                        $scope.fetchAll();
+
+                    }
+                    function notOkFx(response) {
+                        alert("Dangerr");
+                        alert(JSON.stringify(response.data));
+                    }
+                }
+                else {
+                    return;
+                }
+            }
+
+            //-----------------------------
+            $scope.jsonArray = [{}];
+            //----------------------------
+            $scope.fetchAll = function () {
+                $http.get("/fetchProfiles").then(okFx, notOkFx);
+                function okFx(response)  //response is local of okFx()
+                {
+                    // alert("All is well");
+                    alert(JSON.stringify(response.data));
+
+                    $scope.jsonArray = response.data;
+                }
+                function notOkFx(response) {
+                    alert("Danger");
+                    // alert(JSON.stringify(response.data));
+                }
+            }
+
+        })
+
+    </script>
+    <style>
+        #main {
+
+            background-color: rgb(223, 207, 207);
+
+        }
+    </style>
+</head>
+
+<body id="main" ng-app="kuchbhiModule" ng-controller="kuchController" ng-init="fetchAll();">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Medicences</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"><label for="usr" class="col-sm-2 col-form-label">Email</label><span
+                    id="usrspan">*</span></div>
+            <div class="col-md-5"><input type="text" required name="email" class="form-control" id="usr"></div>
+            <div class="col-md-2"><input type="button" ng-click="fetchAll();" value="Fetch All"
+                    class="btn btn-secondary btn-lg">
+            </div>
+        </div>
+
+        <table class="table-bordered table-striped">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Email</th>
+                <th>MedName</th>
+                <th>Company</th>
+                <th>EXP>DAte</th>
+                <th>UNit</th>
+                <th>Quantity</th>
+                <th>Pic Name</th>
+                <th>Doa</th>
+                <th>status</th>
+                <th>Operation</th>
+            </tr>
+            <tr ng-repeat="obj in jsonArray">
+                <td align="center">{{$index+1}}</td>
+                <td>{{obj.email}}</td>
+                <td>{{obj.medname}}</td>
+                <td>{{obj.company}}</td>
+                <!--<td> {{new Date(obj.expdate).getDate()+'-'+(new Date(obj.expdate).getMonth()+1)+'-'+new Date(obj.expdate).getFullYear()}}</td>-->
+                <td>{{obj.expdate.substr(0,10)}}</td>
+                <td>{{obj.unit}}</td>
+                <td>{{obj.qty}}</td>
+                <td>
+                    <img src="pics/{{obj.picname}}" width="150" height="100" alt="">
+                </td>
+                <td>{{obj.doa}}</td>
+                <td>{{obj.status}}</td>
+
+
+                <td align="center">
+                    <input type="button" value="delete" class="btn btn-secondary btn-lg" ng-click=doDelete(obj.email);>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

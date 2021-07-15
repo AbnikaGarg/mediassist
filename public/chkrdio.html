@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <style>
+        * {
+            padding-top: 10px;
+            margin-top: 20px;
+            background-color: bisque;
+        }
+
+        #chkJava,
+        #chekWeb {
+            margin-left: 150px;
+        }
+    </style>
+    <script>
+        function acchecked(va) {
+            if (va.checked == true) {
+
+                document.querySelector("#acchk").disabled = false;
+            }
+            else {
+                document.querySelector("#acchk").disabled = true;
+            }
+        }
+        function coolerchecked(ba) {
+            if (ba.checked == true) {
+
+                document.querySelector("#colchk").disabled = false;
+            }
+            else {
+                document.querySelector("#colchk").disabled = true;
+            }
+
+        }
+        function fanchecked(ca) {
+            if (ca.checked == true) {
+            document.querySelector("#fanchk").disabled = false;
+            }
+            else{
+                document.querySelector("#fanchk").disabled = true;
+            }
+        }
+        function bill() {
+            var unitcon=document.querySelector("#unit");
+            var ac = document.querySelector("#ac");
+            var cool = document.querySelector("#cooler");
+            var fan = document.querySelector("#fan");
+            var a = document.querySelector("#acchk");
+            var b = document.querySelector("#colchk");
+            var c = document.querySelector("#fanchk");
+            var d = document.querySelector("#acbill");
+            var e = document.querySelector("#fanbil");
+            var f = document.querySelector("#colbill");
+            var g= document.querySelector("#unitbill");
+            tot= document.querySelector("#TotalBill");
+            if (ac.checked == true||cool.checked == true||fan.checked==true) {
+                t = ac.value * a.value;
+                d.value = t;
+                h = cool.value * b.value;
+                e.value=h;
+                i=fan.value*c.value;
+                f.value=i;
+            }
+            else {
+                d.value=0;
+                e.value=0;
+                f.value=0;
+            }
+        g.value=unitcon.value*5;
+        tot.value=parseInt(d.value)+parseInt(e.value)+parseInt(g.value)+parseInt(f.value);
+
+        }
+        function discount()
+        {
+           if(document.querySelector("#com").checked==true)
+           {
+           dis=(10 / 100) * tot.value;
+           document.querySelector("#discounted").value=dis;
+           }
+           else if(document.querySelector("#res").checked==true)
+           {
+            s=(20 / 100) * tot.value;
+           document.querySelector("#discounted").value=s;
+           }
+           else{
+            document.querySelector("#discounted").value=0;
+           }
+        }
+     function netamount()
+     {
+         var net=tot.value-document.querySelector("#discounted").value;
+        document.querySelector("#netbill").value=net;
+     }
+    </script>
+</head>
+
+<body>
+    <center> Unit Cosumed <input type="text" id="unit"><br><br>
+
+        <input type="checkbox" id="ac" value="100" onclick="acchecked(this);">AC
+
+        <input type="checkbox" id="cooler" value="80" onclick="coolerchecked(this);">Cooler
+        <input type="checkbox" value="60" id="fan" onclick="fanchecked(this);"> Fan<br>
+        <input type="text" id="acchk" disabled>
+        <input type="text" id="colchk" disabled>
+        <input type="text" id="fanchk" disabled><br>
+        <input type="radio" id="com" name="pro">Commercial10%
+        <input type="radio" id="res" name="pro">residentail20%<br>
+        <input type="button" value="Bill" onclick="bill();">
+        <input type="button" value="discount" onclick="discount()">
+        <input type="button" value="net" onclick="netamount()">
+        <br>
+        Ac Bill<input type="text" id="acbill">
+        Fan Bill<input type="text" id="fanbil">
+
+        Coller Bill<input type="text" id="colbill">
+        <br>
+        units bills<input type="text" id="unitbill">
+        TotalBill <input type="text" id="TotalBill"><br>
+        Discount<input type="text" id="discounted">
+        After discount net<input type="text" id="netbill"><br>
+
+
+    </center>
+</body>
+
+</html>

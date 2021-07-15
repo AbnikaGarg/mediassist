@@ -1,0 +1,191 @@
+/*Universal Selector*/
+*{
+    margin: 0px;;
+}
+.btn
+        {
+            width:110px;; 
+            padding:5px;
+            background-color: orange;
+            font-weight: bold;
+           
+            text-align: center;
+            margin-right: 10px;;
+            cursor: pointer;
+            transition: ease all 1s;
+            border-radius: 10px;;
+            margin-top: 5px;;
+        }
+body{
+    background-color: black;
+    background-image: url(../pics/bg3.png);
+}
+#outer-body
+{
+    width: 1000px; height: 800px; background-color: white;
+    margin: auto;
+   
+}
+#logo
+{
+    float: left;
+    width: 50px; height: 50px;
+    background-image: url(../pics/admininfo.png);  
+    border: 1px black solid;
+    background-size: contain;
+    margin-left: 20px;
+    margin-top: 5px;;
+    border-radius: 50%;
+}
+#title-div
+{
+    width: inherit;
+    height: 60px;; background-color: rgb(255, 182, 45);
+   
+   
+}
+#site-name
+{
+    float: left;; margin-top: 10px;;
+    font-size: 25px;
+    font-style: italic;
+    margin-left: 20px;;
+}
+#fb{
+    float: right;
+    width: 50px;
+    height: 50px;
+    /* border: 1px black solid;; */
+    background-image: url(../pics/fb.png);
+    background-size: contain;
+    margin-right: 20px;;
+    margin-top: 5px;;
+}
+#insta{
+    float: right;
+    width: 50px;
+    height: 50px;
+    /* border: 1px black solid;; */
+    background-image: url(../pics/insta.jpg);
+    background-size: contain;
+    margin-right: 20px;;
+    margin-top: 5px;;
+    border-radius: 50%;
+}
+.dmy:hover{
+    transform: scale(1.2);
+}
+#menu-div
+{
+    width: inherit;
+    height: 50px;; background-color: rgb(12, 12, 11);
+    opacity: .8;
+}
+#menu-div ol
+{
+    list-style: none;
+   margin-left: -40px;;
+    background-color: yellow;
+}
+/* #menu-div  li  -> means li can be any where*/
+
+/* #menu-div>li  -> means li must be the immediate child of #menu-div*/
+
+#menu-div>ol>li{
+    float: left;
+    color: black;
+    padding: 10px;
+    background-color: #fff;
+    margin-top: 5px;
+   margin-right: 5px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px 10px 0px 0px;
+
+}
+#menu-div li:hover{
+    background-color: orange;
+}
+#banner
+{
+    width: inherit;
+    height: 260px;
+    background-image: url(../pics/banner-05.jpg);
+    background-position: center;
+}
+#banner:hover{
+    opacity: .5;
+}
+#products
+{
+    width: inherit;
+    padding: 10px 0px 10px;
+     background-color:lawngreen;
+}
+#all-products
+{
+    width: inherit;
+    
+     background-color:rgb(199, 250, 148);
+     height: 250px;
+     
+}
+.item
+{
+    width: 250px;; height: 230px; margin-top: 10px;; 
+    border: 1px black solid; float: left;
+    margin-right: 20px;; background-color: #fff;
+    
+}
+.part-1
+{
+    width: inherit;
+    height: 150px;;
+     /* background-color: lightcoral; */
+    float: left;
+}
+.part-2
+{
+    width: inherit;
+    height: 40px;; 
+    /* background-color: lightseagreen; */
+    float: left;
+}
+.part-3
+{
+    float: left;
+    width: inherit;
+    height: 40px;;
+     /* background-color: lightcoral; */
+}
+#pic-1{
+    width: 150px;
+    margin: auto;
+    height: 120px;;
+    margin-top: 10px;;
+    /* background-color: maroon; */
+    /* border: 1px black solid; */
+    background-image: url(../pics/adds2.gif);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    /* background-position: 0px 0px; */
+     background-position: top; 
+
+    transition: ease all 1s;;
+}
+#pic-1:hover{
+    background-position: bottom;
+    transition: ease all 1s;;
+  }
+.txt
+{
+    background-color: red;
+    opacity: 1;
+    width: 60px;
+    margin-left: 7px;;
+    text-align: center;
+    transform: rotate(-20deg);
+    margin-top: 10px;;
+    float: left;
+
+}
