@@ -11,7 +11,7 @@ app.use(express.static("public"));//to server .css and .js files to client
 
 
 var path = require("path");
-app.get("/frontpage", function (req, resp) {
+app.get("/", function (req, resp) {
     var fullpath = path.join(process.cwd(), "public", "frontpage.html");
     resp.sendFile(fullpath);
 })
@@ -40,13 +40,13 @@ var dbConfigObj = {
     database: "abnika",  //jo bhi aapka hai
    
 }
-var dbcon = mysql.createConnection(dbConfigObj);
-dbcon.connect(function (err) {
-    if (err)
-        console.log(err.message);
-    else
-        console.log("Connected Successfully");
-});
+var dbcon = mysql.createPool(dbConfigObj);
+// dbcon.connect(function (err) {
+//     if (err)
+//         console.log(err.message);
+//     else
+//         console.log("Connected Successfully");
+// });
 //,,,,,,,,,,,,,,,,
 app.get("/ajax-check-uid", function (req, resp) {
 
